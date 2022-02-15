@@ -3,7 +3,14 @@
   "compilerOptions": {
     "declarationDir": "lib",
     "emitDeclarationOnly": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "types": [
+      "@emotion/react/types/css-prop"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

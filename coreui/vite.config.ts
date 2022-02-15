@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
-import reactRefresh from "@vitejs/plugin-react-refresh";
 import { name, version } from "./package.json";
 import path from "path";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   build: {
@@ -28,7 +28,14 @@ export default defineConfig({
     pkgJson: { name, version },
   },
   esbuild: {
-    jsxInject: `import React from 'react'`,
+    jsxFactory: `jsx`,
+    jsxInject: `import { jsx, css } from '@emotion/react'
+    `,
   },
-  plugins: [reactRefresh()],
+  plugins: [react({
+    jsxImportSource: "@emotion/react",
+    babel: {
+      plugins: ["@emotion/babel-plugin"],
+    },
+  })],
 });
